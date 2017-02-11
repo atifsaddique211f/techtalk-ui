@@ -22,7 +22,7 @@ export class HttpApiService {
   private submitRequest(methodType: RequestMethod, url: string, data: any = null, isAuthorizedRequest) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    if (isAuthorizedRequest)
+    if(isAuthorizedRequest)
       headers.append('Authorization', 'Bearer ' + localStorage.getItem("access_token"));
 
 
@@ -48,6 +48,7 @@ export class HttpApiService {
   public get(url: string, isAuthorizedRequest: boolean = false) {
     return this.submitRequest(RequestMethod.Get, url, null, isAuthorizedRequest);
   }
+
   public delete(url: string, isAuthorizedRequest: boolean = true) {
     return this.submitRequest(RequestMethod.Delete, url, null, isAuthorizedRequest);
   }
